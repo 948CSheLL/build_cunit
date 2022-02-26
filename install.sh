@@ -8,16 +8,15 @@ function exec_command() {
     fi
 }
 
-exec_command "apt-get install autoscan"
-exec_command "apt-get install aclocal"
-exec_command "apt-get install autoheader"
 exec_command "apt-get install automake"
 exec_command "apt-get install autoconf"
 exec_command "apt-get install libtool"
 exec_command "cd CUnit*"
 exec_command "mv configure.in configure.ac"
+exec_command "aclocal"
+exec_command "autoheader"
 exec_command "libtoolize --automake --copy --debug --force"
-exec_command "automakd --add-missing"
+exec_command "automake --add-missing"
 exec_command "autoconf"
 if [ -d "/usr/include/unittest" ];then
     exec_command "rm -rf /usr/include/unittest"
