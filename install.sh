@@ -2,7 +2,7 @@
 
 function exec_command() {
     ${1}
-    exit_status = $(($?))
+    exit_status=$(($?))
     if [ ${exit_status} -ne 0 ];then
         exit ${exit_status}
     fi
